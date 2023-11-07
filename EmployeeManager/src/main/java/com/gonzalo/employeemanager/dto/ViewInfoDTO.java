@@ -16,5 +16,15 @@ public class ViewInfoDTO {
 
 	public Boolean isTeam() {
 		return isTeam;
-	}	
+	}
+
+	public Boolean getIsTeam() {
+		return isTeam;
+	}
+
+	public void setIsTeam(Boolean isTeam) {
+		this.isTeam = isTeam;
+	}
+	
+	
 }
