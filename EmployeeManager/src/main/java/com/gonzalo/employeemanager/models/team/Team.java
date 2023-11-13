@@ -6,6 +6,7 @@ import com.gonzalo.employeemanager.exceptions.NonExistent;
 import com.gonzalo.employeemanager.models.TreeTeam;
 import com.gonzalo.employeemanager.models.employee.Employee;
 
+
 public class Team implements TreeTeam{
 	
 	private String teamName;
@@ -13,6 +14,12 @@ public class Team implements TreeTeam{
 	private String tarea;
 	
 	private List<TreeTeam> employees = new ArrayList<>();
+	
+	protected Team() {}
+	
+	public static ITeamBuilder.TeamName builder(){
+		return new TeamBuilder();
+	}
 	
 	public String getTarea() {
 		return tarea;
