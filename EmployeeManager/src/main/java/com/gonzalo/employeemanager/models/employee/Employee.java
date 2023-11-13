@@ -17,22 +17,18 @@ public class Employee implements TreeTeam{
 	
 	private Long id;
 	
-	@NotEmpty
-	@Size(min=1, max = 20)
 	private String name;
 	
-	@NotEmpty
-	@Size(min=1, max = 20)
 	private String lastName;
 	
-	@NotNull
-	@Past
 	private LocalDate dateOfBirth;
 	
-	@NotNull
-	@Max(20000)
 	private Double salary;
 	
+	
+	protected Employee() {
+		
+	}
 	public static IEmployeeBuilder.Name builder(){
 		return new EmployeeBuilder();
 	}
