@@ -79,13 +79,13 @@ public class Team implements TreeTeam{
 		
 		builder
 			.append("Name of team : ").append(this.teamName).append("\n")
-			.append("Task of team : ").append(this.teamName).append("\n")
+			.append("Task of team : ").append(this.tarea).append("\n")
 			.append((!employees.isEmpty()) ? "-- Employees --":"");
 		
 		for(TreeTeam emp : employees) {
 			builder
 				.append("\n")
-				.append(emp.toString());
+				.append(emp.viewInfo());
 		}
 		
 		return builder.toString();
