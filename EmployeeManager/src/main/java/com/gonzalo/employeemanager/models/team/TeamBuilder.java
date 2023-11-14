@@ -27,7 +27,7 @@ public class TeamBuilder implements ITeamBuilder.TeamName, ITeamBuilder.Tarea, I
 
 	@Override
 	public Optional tarea(String tarea) {
-		this.tarea(tarea);
+		this.team.setTarea(tarea);
 		return this;
 	}
 
