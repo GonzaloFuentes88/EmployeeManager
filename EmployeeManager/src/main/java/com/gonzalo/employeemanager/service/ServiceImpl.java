@@ -9,6 +9,7 @@ import com.gonzalo.employeemanager.models.TreeTeam;
 import com.gonzalo.employeemanager.models.employee.Employee;
 import com.gonzalo.employeemanager.models.team.Team;
 
+@org.springframework.stereotype.Service
 public class ServiceImpl implements Service<TreeTeam>{
 	
 	private TreeTeam localData;
@@ -82,7 +83,7 @@ public class ServiceImpl implements Service<TreeTeam>{
 	
 	@Override
 	public TreeTeam findOne(String identifier) {
-		
+//		localData.
 		return null;
 	}
 	
@@ -91,8 +92,8 @@ public class ServiceImpl implements Service<TreeTeam>{
 
 		 try {
 			localData.add(element);
+			System.out.println(localData.viewInfo());
 		} catch (InvalidTeamOperationException e) {
-			// TODO Auto-generated catch block
 			throw e;
 		} catch (NonExistent e) {
 			throw e;
