@@ -8,6 +8,7 @@ import com.gonzalo.employeemanager.exceptions.NonExistent;
 import com.gonzalo.employeemanager.models.TreeTeam;
 import com.gonzalo.employeemanager.models.employee.Employee;
 import com.gonzalo.employeemanager.models.team.Team;
+import com.google.gson.Gson;
 
 @org.springframework.stereotype.Service
 public class ServiceImpl implements Service<TreeTeam>{
@@ -83,16 +84,37 @@ public class ServiceImpl implements Service<TreeTeam>{
 	
 	@Override
 	public TreeTeam findOne(String identifier) {
-//		localData.
+			
+		Team teamAux = ((Team)localData);
+		//Hacer loop si es !isTeam itera sus elementos si no compara el identifier
+//			if(teamAux.getTeamName().equals(identifier)) {
+//				return teamAux;
+//			}else {
+//				teamAux.getTreeTeams().stream().filter(a -> {
+//					
+//					if(a.isTeam()) {
+//						if(((Team)a).getTeamName().equals(identifier)) {
+//							return true;
+//						}else {
+//							if()
+//						}
+//					}else {
+//						return ((Employee)a).getIdentifier().equals(identifier);
+//					}
+//				});
+//				teamAux.getTreeTeams().get();
+//			}
+//		}
 		return null;
 	}
+	
+	private 
 	
 	 @Override
 	public void save(TreeTeam element) throws InvalidTeamOperationException, NonExistent {
 
 		 try {
 			localData.add(element);
-			System.out.println(localData.viewInfo());
 		} catch (InvalidTeamOperationException e) {
 			throw e;
 		} catch (NonExistent e) {

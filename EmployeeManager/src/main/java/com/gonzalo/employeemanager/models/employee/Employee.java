@@ -10,12 +10,13 @@ import javax.validation.constraints.Size;
 
 import com.gonzalo.employeemanager.exceptions.InvalidTeamOperationException;
 import com.gonzalo.employeemanager.models.TreeTeam;
+import com.google.gson.Gson;
 
 public class Employee implements TreeTeam{
 	
 	//Cambio de prueba
 	
-	private Long id;
+	private String identifier;
 	
 	private String name;
 	
@@ -32,15 +33,13 @@ public class Employee implements TreeTeam{
 	public static IEmployeeBuilder.Name builder(){
 		return new EmployeeBuilder();
 	}
-	
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public String getIdentifier() {
+		return identifier;
 	}
-
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
 	public String getName() {
 		return name;
 	}
@@ -90,17 +89,7 @@ public class Employee implements TreeTeam{
 
 	@Override
 	public String viewInfo() {
-		return this.toString();
+		return new Gson().toJson(this);
 	}
-
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth
-				+ ", salary=" + salary + "]";
-	}
-	
-	
-	
-	
 	
 }

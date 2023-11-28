@@ -5,6 +5,7 @@ import java.util.List;
 import com.gonzalo.employeemanager.exceptions.NonExistent;
 import com.gonzalo.employeemanager.models.TreeTeam;
 import com.gonzalo.employeemanager.models.employee.Employee;
+import com.google.gson.Gson;
 
 
 public class Team implements TreeTeam{
@@ -13,7 +14,7 @@ public class Team implements TreeTeam{
 	
 	private String tarea;
 	
-	private List<TreeTeam> employees = new ArrayList<>();
+	private List<TreeTeam> treeTeams = new ArrayList<>();
 	
 	protected Team() {}
 	
@@ -29,12 +30,12 @@ public class Team implements TreeTeam{
 		this.tarea = tarea;
 	}
 
-	public List<TreeTeam> getEmployees() {
-		return employees;
+	public List<TreeTeam> getTreeTeams() {
+		return treeTeams;
 	}
 
-	public void setEmployees(List<TreeTeam> employees) {
-		this.employees = employees;
+	public void setTreeTeams(List<TreeTeam> treeTeams) {
+		this.treeTeams = treeTeams;
 	}
 
 	public String getTeamName() {
@@ -47,25 +48,25 @@ public class Team implements TreeTeam{
 
 	@Override
 	public void add(TreeTeam obj){
-		this.employees.add(obj);
+		this.treeTeams.add(obj);
 	}
 
 	@Override
 	public void remove(TreeTeam obj) throws NonExistent {
 		
-		if(obj instanceof Employee) {
-			Long id = ((Employee) obj).getId();
-			try {
-				this.employees.remove(obj);	
-			}catch(Exception e) {
-				throw new NonExistent("No user with id "+id+" found");
-			}
-		}
-		try {
-			this.employees.remove(obj);
-		}catch(Exception e) {
-			throw new NonExistent("Team not found");
-		}
+//		if(obj instanceof Employee) {
+//			Long id = ((Employee) obj).getId();
+//			try {
+//				this.treeTeams.remove(obj);	
+//			}catch(Exception e) {
+//				throw new NonExistent("No user with id "+id+" found");
+//			}
+//		}
+//		try {
+//			this.treeTeams.remove(obj);
+//		}catch(Exception e) {
+//			throw new NonExistent("Team not found");
+//		}
 	}
 
 	@Override
@@ -76,19 +77,20 @@ public class Team implements TreeTeam{
 	@Override
 	public String viewInfo() {
 		StringBuilder builder = new StringBuilder();
+		Gson gson = new Gson();
 		
-		builder
-			.append("Name of team : ").append(this.teamName).append("\n")
-			.append("Task of team : ").append(this.tarea).append("\n")
-			.append((!employees.isEmpty()) ? "-- Employees --":"");
+//		builder
+//			.append("Name of team : ").append(this.teamName).append("\n")
+//			.append("Task of team : ").append(this.tarea).append("\n")
+//			.append((!employees.isEmpty()) ? "-- Employees --":"");
+//		
+//		for(TreeTeam emp : employees) {
+//			builder
+//				.append("\n")
+//				.append(emp.viewInfo());
+//		}
 		
-		for(TreeTeam emp : employees) {
-			builder
-				.append("\n")
-				.append(emp.viewInfo());
-		}
-		
-		return builder.toString();
+		return gson.toJson(this);
 	}
 	
 }
