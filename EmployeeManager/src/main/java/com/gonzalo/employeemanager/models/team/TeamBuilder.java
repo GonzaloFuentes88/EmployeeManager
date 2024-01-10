@@ -21,7 +21,7 @@ public class TeamBuilder implements ITeamBuilder.TeamName, ITeamBuilder.Tarea, I
 
 	@Override
 	public Optional listTreeTeam(List<TreeTeam> treeTeam) {
-		this.team.setEmployees(treeTeam);
+		this.team.setTreeTeams(treeTeam);
 		return this;
 	}
 
